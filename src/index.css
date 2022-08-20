@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Montserrat', sans-serif;
+    background-color:	#C0C0C0;
+}
+.container{
+    width: 100%;
+    max-width: 1300px;
+    padding: 0 10px;
+    margin: 0 auto;
+}
+.main-container{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+a{
+    text-decoration: none;
+}
+li{
+    list-style-type: none;
+}
+@media only screen and (max-width:767px){
+    .main-container{
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+}

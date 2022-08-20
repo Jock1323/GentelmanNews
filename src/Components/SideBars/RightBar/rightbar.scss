@@ -1,0 +1,17 @@
+.right-bar{
+    width: 25%;
+    background-color: #fff;
+    min-height: 100vh;
+    padding-top: 110px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    padding-left: 10px;
+    padding-right: 10px;
+    overflow: auto;
+}
+@media only screen and (max-width:767px){
+    .right-bar{
+        width: 100%;
+        min-height: 10vh;
+    }
+
+}

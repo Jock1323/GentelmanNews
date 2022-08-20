@@ -1,0 +1,166 @@
+.todo__title{
+    font-size: 30px;
+    color: #000;
+}
+.todo__form{
+    text-align: center;
+    margin-top: 40px;
+}
+.todo__input,
+.todo__modal-input{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    width: 80%;
+    height: 45px;
+    border: 1px solid #f7f7f7;
+    padding: 10px 20px;
+    outline: none;
+    border-radius: 5px;
+    transition: all .3s;
+}
+.todo__input:focus,
+.todo__modal-input:focus{
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+.todo__add,
+.todo__modal-btn{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    margin-left: 16px;
+    height: 45px;
+    width: 100px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all .3s;
+}
+.todo__add:hover,
+.todo__modal-btn:hover{
+    background-color:rgb(81, 79, 79);
+    color: #f7f7f7;
+}
+.todo__table{
+    border-collapse: collapse;
+    width:98%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 32px;
+    text-align: center;
+}
+.todo__table td, .todo__table th {
+    border: 1px solid #f7f7f7;
+    padding: 8px;
+    font-size: 16px;
+    line-height: 20px;
+  }
+  .todo__table tr{
+    background-color:#FADCDC;
+  }
+  .todo__table .complited{
+    background-color: #04AA6D;
+  }
+  .todo__table .checked-color{
+    color: #f7f7f7;
+  }
+ .todo__table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    color:#000;
+    background-color: #f7f7f7;
+    text-align: center;
+  }
+  .todo__btns-edit,
+  .todo__btns-delete{
+    font-family: 'Montserrat', sans-serif;
+    padding:8px;
+    width: 70px;
+    font-size: 16px;
+    border: none;
+    background-color: gold;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  .todo__btns-delete{
+    margin-left: 10px;
+    background-color:#F33A6A;
+  }
+  .todo__checkbox{
+    margin-left: 5px;
+    outline: none;
+  }
+  .todo__empty{
+    font-weight: 500;
+    font-size: 20px;
+    text-align: center;
+    color: #000;
+    margin-top: 30px;
+  }
+  .todo__modal-wrapper{
+    margin-top:60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  @media only screen and (max-width:1165px){
+    .todo__form{
+      text-align: left;
+    }
+    .todo__input{
+      width: 70%;
+    }
+    .todo__table{
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+
+  @media only screen and (max-width:1095px){
+    .todo__btns-delete,
+    .todo__btns-edit{
+      display: block;
+      margin-left: 0;
+    }
+    .todo__btns-delete{
+      margin-top: 10px;
+    }
+  }
+  @media only screen and (max-width:809px){
+    .todo__input{
+      width:100%;
+    }
+    .todo__add{
+      margin-left: 0;
+      margin-top: 16px;
+      width: 100%;
+    }
+    .todo__table{
+      width: 100%;
+    }
+  }
+  @media only screen and (max-width:600px){
+    .todo__form{
+      margin-top: 20px;
+    }
+    .todo__modal-wrapper{
+      flex-direction: column;
+      align-items: center;
+    }
+    .todo__modal-input{
+      width: 100%;
+    }
+    .todo__modal-btn{
+      width: 100%;
+      margin-top: 16px;
+      margin-left: 0;
+    }
+  }
+  @media only screen and (max-width:370px){
+    .todo__table th,
+    .todo__table td,
+    .todo__btns-edit,
+    .todo__btns-delete{
+      font-size: 14px;
+    }
+  }
+  
