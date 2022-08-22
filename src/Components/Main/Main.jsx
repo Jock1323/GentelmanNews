@@ -7,6 +7,7 @@ import Tesla from "../../Pages/Tesla/Tesla";
 import Todo from "../../Pages/Todo/Todo";
 import Bookmark from "../Bookmark/Bookmark";
 import Calculator from "../Calculator/Calculator";
+import CalculatorPage from "../../Pages/CalculatorPage/CalculatorPage";
 function Main() {
   return (
     <>
@@ -18,7 +19,7 @@ function Main() {
             <Route path={"business"} element={<Business />} />
             <Route path={"todo"} element={<Todo />} />
             <Route path={"bookmark"} element={<Bookmark />} />
-            <Route path={"calculator"} element={<Calculator />} />
+            <Route path={"calculator"} element={<CalculatorPage />} />
           </Routes>
         </div>
       </main>

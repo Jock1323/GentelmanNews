@@ -5,9 +5,6 @@ import "./todo.scss";
 function Todo() {
   const [local, setLocal] = useState(false);
   const [todo, setTodo] = useState([]);
-  // let x = JSON.parse(window.localStorage.getItem("todo"));
-  // console.log(x);
-  console.log(todo);
   const [modalActive, setModalActive] = useState(false);
   const [editObject, setEditObject] = useState([]);
   const [message, setMessage] = useState(false);
