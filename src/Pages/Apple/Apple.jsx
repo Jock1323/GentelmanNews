@@ -17,7 +17,7 @@ function Apple() {
   // };
   useEffect(() => {
     fetch(
-      `https://newsapi.org/v2/everything?q=apple&from=2022-08-22&to=2022-08-22&sortBy=popularity&page=1&pageSize=10&apiKey=cd5989874f8649ebb2dca88790fc68e4`
+      `http://newsapi.org/v2/everything?q=apple&from=2022-08-22&to=2022-08-22&sortBy=popularity&page=1&pageSize=10&apiKey=cd5989874f8649ebb2dca88790fc68e4`
     )
       .then((res) => res.json())
       .then((data) => setAppleInfo(data));
