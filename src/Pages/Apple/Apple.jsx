@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Modal from "../../Components/Modal/Modal";
 import Loader from "../../Components/Loader/Loader";
 import Get from "../../API/Get/Get";
 import "./apple.scss";
@@ -9,7 +8,9 @@ function Apple() {
   const [load, setLoad] = useState(false);
   const appleData = async () => {
     setLoad(true);
-    const apple = await fetch(Get.appleData(1));
+    const apple = await fetch(
+      `https://newsapi.org/v2/everything?q=apple&from=2022-08-22&to=2022-08-22&sortBy=popularity&page=${1}&pageSize=10&apiKey=cd5989874f8649ebb2dca88790fc68e4`
+    );
     const result = await apple.json();
     setAppleInfo(result);
     setLoad(false);
