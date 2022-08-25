@@ -9,7 +9,7 @@ function Apple() {
   const [load, setLoad] = useState(false);
   const appleData = async () => {
     setLoad(true);
-    const apple = await fetch(Get.appleData());
+    const apple = await fetch(Get.appleData(1));
     const result = await apple.json();
     setAppleInfo(result);
     setLoad(false);
