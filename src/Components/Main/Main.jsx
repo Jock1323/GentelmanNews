@@ -10,7 +10,6 @@ import Bookmark from "../Bookmark/Bookmark";
 import Calculator from "../Calculator/Calculator";
 import CalculatorPage from "../../Pages/CalculatorPage/CalculatorPage";
 import Article from "../../Pages/Article/Article";
-import Full from "../../Pages/Full";
 function Main() {
   return (
     <>

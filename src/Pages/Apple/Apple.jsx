@@ -17,7 +17,6 @@ function Apple() {
   useEffect(() => {
     appleData();
   }, []);
-  console.log(appleInfo);
   return (
     <>
       <div className="apple">
