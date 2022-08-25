@@ -1,11 +1,21 @@
 .main{
     background-color: #fff;
     width:60%;
-    min-height: 100vh;
+    // min-height: 100vh;
+    height: 100vh;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     padding-top: 110px;
     overflow: auto;
 }
+.main::-webkit-scrollbar {
+    width:0;
+  }
+  .main:hover::-webkit-scrollbar{
+    width: 5px;
+  }
+  .main:hover::-webkit-scrollbar-thumb{
+    background-color: rgba(48, 44, 44, 0.726);
+  }
 @media only screen and (max-width:767px){
         .main{
             width: 100%;
