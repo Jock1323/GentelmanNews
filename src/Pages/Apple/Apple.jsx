@@ -3,44 +3,58 @@ import Loader from "../../Components/Loader/Loader";
 import Get from "../../API/Get/Get";
 import "./apple.scss";
 import { Link } from "react-router-dom";
+import Pagination from "../../Components/Pagination/Pagination";
 function Apple() {
   const [appleInfo, setAppleInfo] = useState([]);
-  // const [load, setLoad] = useState(false);
-  // const appleData = async () => {
-  //   // setLoad(true);
-  //   const apple = await fetch(
-  //     `https://newsapi.org/v2/everything?q=apple&from=2022-08-22&to=2022-08-22&sortBy=popularity&page=1&pageSize=10&apiKey=cd5989874f8649ebb2dca88790fc68e4`
-  //   );
-  //   const result = await apple.json();
-  //   setAppleInfo(result);
-  //   // setLoad(false);
-  // };
+  const [page, setPage] = useState(1);
+  const [load, setLoad] = useState(false);
+  const appleData = async () => {
+    setLoad(true);
+    const apple = await fetch(Get.appleData(page));
+    const result = await apple.json();
+    setAppleInfo(result);
+    setLoad(false);
+  };
   useEffect(() => {
-    fetch(
-      `http://newsapi.org/v2/everything?q=apple&from=2022-08-22&to=2022-08-22&sortBy=popularity&page=1&pageSize=10&apiKey=cd5989874f8649ebb2dca88790fc68e4`
-    )
-      .then((res) => res.json())
-      .then((data) => setAppleInfo(data));
-  }, []);
+    appleData();
+  }, [page]);
+  console.log();
+  // console.log(appleInfo.totalResults);
   return (
     <>
       <div className="apple">
+        {appleInfo.status === "error" ? (
+          <p className="status-error">
+            {" "}
+            status error please back to home page or refresh the site
+          </p>
+        ) : (
+          ""
+        )}
         {appleInfo.length === 0 ? (
           <Loader />
         ) : (
           <>
             <div className="apple__list">
-              {appleInfo.articles.map((item, index) => (
-                <Link to={`/${item.title}`} className="apple__item" key={index}>
+              {appleInfo?.articles?.map((item, index) => (
+                <Link
+                  to={`/${item?.title}`}
+                  className="apple__item"
+                  key={index}
+                >
                   <img
-                    src={item.urlToImage}
+                    src={item?.urlToImage}
                     alt="an article image"
                     className="apple__item-img"
                   />
-                  <h4 className="apple__item-title">{item.title}</h4>
+                  <h4 className="apple__item-title">{item?.title}</h4>
                 </Link>
               ))}
             </div>
+            <Pagination
+              totalPage={appleInfo.totalResults}
+              setApplePage={setPage}
+            />
           </>
         )}
       </div>
