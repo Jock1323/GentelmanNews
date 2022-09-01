@@ -1,41 +1,47 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./pagination.scss";
-function Pagination({ totalPage, setApplePage }) {
+function Pagination({ totalPage, setApplePage, controlPage }) {
   const [page, setPage] = useState(4);
   const [initialPage, setInitialPage] = useState(0);
-  const [next, setNext] = useState(1);
-  // const [reRenderPage, setReRenderPage] = useState(1);
-  const prevDisabled = useRef();
-  let pages = [];
+  const paginate = document.querySelectorAll(".paginate__item");
+  const pages = [];
   let restoredPages = [];
   for (let number = 1; number <= Math.ceil(totalPage / 10); number++)
     pages.push(number);
   restoredPages = pages.slice(initialPage, page);
-  // console.log(next);
-  // console.log(restoredPages);
-  console.log(initialPage);
-  console.log(page);
-  // console.log(prevDisabled.current.disabled);
-  console.log(next);
-  console.log(pages.length);
+  const nextPageFunc = () => {
+    if (controlPage < pages.length) {
+      setInitialPage(initialPage + 1);
+      setPage(page + 1);
+      setApplePage(controlPage + 1);
+    }
+  };
+  const prevPageFunc = () => {
+    if (controlPage > 1) {
+      setInitialPage(initialPage - 1);
+      setPage(page - 1);
+      setApplePage(controlPage - 1);
+    } else {
+      setInitialPage(0);
+      setPage(4);
+      setApplePage(1);
+    }
+  };
   return (
     <>
       <div className="paginate__wrapper">
-        <button
-          className="prev prev-active"
-          ref={prevDisabled}
-          onClick={() => {
-            if (initialPage > 0) {
-              setInitialPage(initialPage - 1);
-              setPage(initialPage + 3);
-            }
-          }}
-        >
+        <button className="prev prev-active" onClick={prevPageFunc}>
           <i className="fa-solid fa-angle-left"></i>
         </button>
         <ul className="paginate">
           {restoredPages.map((item, index) => (
-            <li className="paginate__item" key={index}>
+            <li
+              className="paginate__item"
+              key={index}
+              onClick={() => {
+                setApplePage(item);
+              }}
+            >
               <a href="#" className="paginate__link">
                 {item}
               </a>
@@ -47,21 +53,7 @@ function Pagination({ totalPage, setApplePage }) {
             </a>
           </li>
         </ul>
-        <button
-          className="next"
-          onClick={() => {
-            if (page < pages.length || next < pages.length) {
-              setInitialPage(initialPage + 1);
-              setPage(page + 1);
-              setNext(next + 1);
-            } else {
-              setInitialPage(pages.length - 4);
-              setPage(pages.length);
-              setNext(pages.length);
-            }
-            setApplePage(next);
-          }}
-        >
+        <button className="next" onClick={nextPageFunc}>
           <i className="fa-solid fa-angle-right"></i>
         </button>
       </div>

@@ -18,8 +18,6 @@ function Apple() {
   useEffect(() => {
     appleData();
   }, [page]);
-  console.log();
-  // console.log(appleInfo.totalResults);
   return (
     <>
       <div className="apple">
@@ -54,6 +52,7 @@ function Apple() {
             <Pagination
               totalPage={appleInfo.totalResults}
               setApplePage={setPage}
+              controlPage={page}
             />
           </>
         )}
