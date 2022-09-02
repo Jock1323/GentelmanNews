@@ -2,12 +2,13 @@ import React, { useState, useEffect } from "react";
 import Loader from "../../Components/Loader/Loader";
 import Get from "../../API/Get/Get";
 import "./apple.scss";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Pagination from "../../Components/Pagination/Pagination";
-function Apple() {
+function Apple({ getLocation }) {
   const [appleInfo, setAppleInfo] = useState([]);
   const [page, setPage] = useState(1);
   const [load, setLoad] = useState(false);
+  const location = useLocation();
   const appleData = async () => {
     setLoad(true);
     const apple = await fetch(Get.appleData(page));
@@ -17,6 +18,7 @@ function Apple() {
   };
   useEffect(() => {
     appleData();
+    getLocation(location.pathname);
   }, [page]);
   return (
     <>

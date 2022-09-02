@@ -3,7 +3,6 @@ import "./pagination.scss";
 function Pagination({ totalPage, setApplePage, controlPage }) {
   const [page, setPage] = useState(4);
   const [initialPage, setInitialPage] = useState(0);
-  const paginate = document.querySelectorAll(".paginate__item");
   const pages = [];
   let restoredPages = [];
   for (let number = 1; number <= Math.ceil(totalPage / 10); number++)

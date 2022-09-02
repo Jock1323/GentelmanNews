@@ -1,19 +1,17 @@
 import React, { useEffect, useState } from "react";
 import "./article.scss";
 import { useParams, useNavigate } from "react-router-dom";
-function Article() {
+function Article({ pathname }) {
   const [innerData, setInnerData] = useState([]);
   const { title } = useParams();
   const navigate = useNavigate();
   useEffect(() => {
     fetch(
-      `https://newsapi.org/v2/everything?q=${title}&category
-      =business&from=2022-08-22&to=2022-08-22&apiKey=cd5989874f8649ebb2dca88790fc68e4`
+      ` https://newsapi.org/v2/everything?q=${title}&from=2022-08-02&sortBy=publishedAt&apiKey=cd5989874f8649ebb2dca88790fc68e4`
     )
       .then((res) => res.json())
       .then((data) => setInnerData(data.articles));
   }, []);
-  console.log(innerData);
   return (
     <>
       <article className="article">

@@ -7,20 +7,33 @@ import Business from "../../Pages/Business/Business";
 import Tesla from "../../Pages/Tesla/Tesla";
 import Todo from "../../Pages/Todo/Todo";
 import Bookmark from "../Bookmark/Bookmark";
-import Calculator from "../Calculator/Calculator";
 import CalculatorPage from "../../Pages/CalculatorPage/CalculatorPage";
 import Article from "../../Pages/Article/Article";
 function Main() {
+  // const [appleBackPage, setAppleBackPage] = useState(1);
+  const [pathname, setPathname] = useState("");
+  const getLocation = (path) => {
+    setPathname(path);
+  };
   return (
     <>
       <main className="main">
         <div className="container">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path={"apple"} element={<Apple />} />
-            <Route path={"tesla"} element={<Tesla />} />
+            <Route
+              path={"apple"}
+              element={<Apple getLocation={getLocation} />}
+            />
+            <Route
+              path={"tesla"}
+              element={<Tesla getLocation={getLocation} />}
+            />
+            <Route
+              path={`${pathname.slice(1, pathname.length)}/:title`}
+              element={<Article pathname={pathname} />}
+            />
             <Route path={"business"} element={<Business />} />
-            <Route path="/:title" element={<Article />} />
             <Route path={"todo"} element={<Todo />} />
             <Route path={"bookmark"} element={<Bookmark />} />
             <Route path={"calculator"} element={<CalculatorPage />} />
