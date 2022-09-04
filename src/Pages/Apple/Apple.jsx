@@ -19,13 +19,14 @@ function Apple({ getLocation }) {
   useEffect(() => {
     appleData();
     getLocation(location.pathname);
+    console.log(location.pathname);
+    console.log(new Date().getDate());
   }, [page]);
   return (
     <>
       <div className="apple">
         {appleInfo.status === "error" ? (
           <p className="status-error">
-            {" "}
             status error please back to home page or refresh the site
           </p>
         ) : (
@@ -37,11 +38,7 @@ function Apple({ getLocation }) {
           <>
             <div className="apple__list">
               {appleInfo?.articles?.map((item, index) => (
-                <Link
-                  to={`/${item?.title}`}
-                  className="apple__item"
-                  key={index}
-                >
+                <Link to={`${item?.title}`} className="apple__item" key={index}>
                   <img
                     src={item?.urlToImage}
                     alt="an article image"

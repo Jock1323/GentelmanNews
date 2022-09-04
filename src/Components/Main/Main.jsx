@@ -30,10 +30,16 @@ function Main() {
               element={<Tesla getLocation={getLocation} />}
             />
             <Route
-              path={`${pathname.slice(1, pathname.length)}/:title`}
+              path={`${pathname.slice(
+                1,
+                pathname.toLocaleLowerCase().length
+              )}/:title`}
               element={<Article pathname={pathname} />}
             />
-            <Route path={"business"} element={<Business />} />
+            <Route
+              path={"business"}
+              element={<Business getLocation={getLocation} />}
+            />
             <Route path={"todo"} element={<Todo />} />
             <Route path={"bookmark"} element={<Bookmark />} />
             <Route path={"calculator"} element={<CalculatorPage />} />

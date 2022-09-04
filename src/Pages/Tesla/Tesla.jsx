@@ -16,10 +16,10 @@ function Tesla({ getLocation }) {
     setTeslaInfo(result);
     setLoad(false);
   };
-  console.log(teslaInfo);
   useEffect(() => {
     teslaData();
     getLocation(location.pathname);
+    console.log(location.pathname);
   }, [page]);
   return (
     <>
@@ -37,12 +37,7 @@ function Tesla({ getLocation }) {
           <>
             <div className="apple__list">
               {teslaInfo?.articles?.map((item, index) => (
-                <Link
-                  to={`/${item?.title}`}
-                  className="apple__item"
-                  key={index}
-                  // onClick={() => getLocation(location.pathname)}
-                >
+                <Link to={`${item?.title}`} className="apple__item" key={index}>
                   <img
                     src={item?.urlToImage}
                     alt="an article image"

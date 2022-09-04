@@ -5,10 +5,16 @@ const USA_TOP_BUSINESS_URL =
 
 const Get = {
   appleData: (page) => {
-    return `https://newsapi.org/v2/everything?q=apple&from=2022-08-02&to=2022-08-02&sortBy=popularity&page=${page}&pageSize=10&apiKey=cd5989874f8649ebb2dca88790fc68e4`;
+    return `https://newsapi.org/v2/everything?q=apple&from=${new Date().getFullYear()}-${
+      new Date().getMonth() + 1
+    }-${new Date().getDate()}&to=${new Date().getFullYear()}-${
+      new Date().getMonth() + 1
+    }-${new Date().getDate()}&sortBy=popularity&page=${page}&pageSize=10&apiKey=cd5989874f8649ebb2dca88790fc68e4`;
   },
   teslaData: (page) => {
-    return `https://newsapi.org/v2/everything?q=tesla&from=2022-08-02&sortBy=publishedAt&page=${page}&pageSize=10&apiKey=cd5989874f8649ebb2dca88790fc68e4`;
+    return `https://newsapi.org/v2/everything?q=tesla&from=${new Date().getFullYear()}-${
+      new Date().getMonth() + 1
+    }-${new Date().getDate()}&sortBy=publishedAt&page=${page}&pageSize=10&apiKey=cd5989874f8649ebb2dca88790fc68e4`;
   },
   useBusinessData: (page) => {
     return `https://newsapi.org/v2/top-headlines?country=us&category=business&page=${page}&pageSize=10&apiKey=cd5989874f8649ebb2dca88790fc68e4`;

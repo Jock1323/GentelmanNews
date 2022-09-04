@@ -5,9 +5,10 @@ function Article({ pathname }) {
   const [innerData, setInnerData] = useState([]);
   const { title } = useParams();
   const navigate = useNavigate();
+  console.log(pathname);
   useEffect(() => {
     fetch(
-      ` https://newsapi.org/v2/everything?q=${title}&from=2022-08-02&sortBy=publishedAt&apiKey=cd5989874f8649ebb2dca88790fc68e4`
+      ` https://newsapi.org/v2/everything?q=${title}&sortBy=publishedAt&apiKey=cd5989874f8649ebb2dca88790fc68e4`
     )
       .then((res) => res.json())
       .then((data) => setInnerData(data.articles));
@@ -15,7 +16,7 @@ function Article({ pathname }) {
   return (
     <>
       <article className="article">
-        {innerData.length > 0 ? (
+        {innerData?.length > 0 ? (
           <>
             <img
               src={innerData[0]?.urlToImage}
