@@ -39,9 +39,11 @@
     border: none;
     outline: none;
 }
-.prev-active:disabled{
-    color: red;
+@media only screen and (max-width:350px){
+    .paginate__item,
+.prev,
+.next{
+    width: 35px;
+    height: 35px;
 }
-.activePage{
-    background-color:red;
 }

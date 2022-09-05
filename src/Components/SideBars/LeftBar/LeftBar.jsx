@@ -5,7 +5,6 @@ function LeftBar({ className }) {
   return (
     <>
       <aside className={`left-bar ${className}`}>
-        {/* <i class="fa-solid fa-sun light"></i> */}
         <span className="mode">
           <i className="fa-solid fa-moon dark"></i>
           <span className="left__item-text">Dark</span>
@@ -15,15 +14,6 @@ function LeftBar({ className }) {
             <i className="fa-solid fa-moon dark"></i>
             <span className="left__item-text">Dark</span>
           </span>
-          <NavLink
-            to="/bookmark"
-            className={({ isActive }) =>
-              `left__item ${isActive ? "left__item-active" : ""}`
-            }
-          >
-            <i className="fa-solid fa-bookmark bookmark"></i>
-            <span className="left__item-text">Bookmark</span>
-          </NavLink>
           <NavLink
             to="/todo"
             className={({ isActive }) =>

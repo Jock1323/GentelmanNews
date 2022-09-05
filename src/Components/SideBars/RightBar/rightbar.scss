@@ -7,11 +7,52 @@
     padding-left: 10px;
     padding-right: 10px;
     overflow: auto;
+    padding-bottom: 30px;
+}
+.weather__input,
+.weather__btn{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    width:100%;
+    height: 35px;
+    border: 1px solid #e2e2e2;
+    padding: 10px 20px;
+    outline: none;
+    border-radius: 5px;
+}
+.weather__input:focus{
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+.weather__btn{
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+.weather-info__title{
+    margin-top: 20px;
+}
+.weather-info__text{
+    margin-top: 10px;
+}
+.weather-error{
+    font-size: 18px;
+    color: red;
+    text-align: center;
+    margin-top: 20px;
+}
+@media only screen and (max-width:992px){
+    .weather__input,
+.weather__btn,
+.weather-info__text{
+    font-size: 14px;
+}
 }
 @media only screen and (max-width:767px){
     .right-bar{
         width: 100%;
         min-height: 10vh;
+        padding-top: 20px;
     }
 
 }

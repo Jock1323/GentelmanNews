@@ -6,11 +6,9 @@ import Apple from "../../Pages/Apple/Apple";
 import Business from "../../Pages/Business/Business";
 import Tesla from "../../Pages/Tesla/Tesla";
 import Todo from "../../Pages/Todo/Todo";
-import Bookmark from "../Bookmark/Bookmark";
 import CalculatorPage from "../../Pages/CalculatorPage/CalculatorPage";
 import Article from "../../Pages/Article/Article";
 function Main() {
-  // const [appleBackPage, setAppleBackPage] = useState(1);
   const [pathname, setPathname] = useState("");
   const getLocation = (path) => {
     setPathname(path);
@@ -41,7 +39,6 @@ function Main() {
               element={<Business getLocation={getLocation} />}
             />
             <Route path={"todo"} element={<Todo />} />
-            <Route path={"bookmark"} element={<Bookmark />} />
             <Route path={"calculator"} element={<CalculatorPage />} />
           </Routes>
         </div>

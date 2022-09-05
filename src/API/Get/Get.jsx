@@ -1,8 +1,5 @@
-const APPLE_GET_URL = `https://newsapi.org/v2/everything?q=apple&from=2022-08-22&to=2022-08-22&sortBy=popularity&page=${1}&pageSize=10&apiKey=cd5989874f8649ebb2dca88790fc68e4`;
-const TESLA_GET_URL = `https://newsapi.org/v2/everything?q=tesla&from=2022-07-23&sortBy=publishedAt&page=${1}&pageSize=10apiKey=cd5989874f8649ebb2dca88790fc68e4`;
-const USA_TOP_BUSINESS_URL =
-  "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=cd5989874f8649ebb2dca88790fc68e4";
-
+// 274f61e74d7f8090a7f9dd2f7a0c3ec2
+// https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=274f61e74d7f8090a7f9dd2f7a0c3ec2
 const Get = {
   appleData: (page) => {
     return `https://newsapi.org/v2/everything?q=apple&from=${new Date().getFullYear()}-${
@@ -18,6 +15,9 @@ const Get = {
   },
   useBusinessData: (page) => {
     return `https://newsapi.org/v2/top-headlines?country=us&category=business&page=${page}&pageSize=10&apiKey=cd5989874f8649ebb2dca88790fc68e4`;
+  },
+  weatherData: (country) => {
+    return `https://api.openweathermap.org/data/2.5/weather?q=${country}&units=metric&appid=274f61e74d7f8090a7f9dd2f7a0c3ec2`;
   },
 };
 export default Get;
