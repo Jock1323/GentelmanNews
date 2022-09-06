@@ -2,24 +2,20 @@ import React, { useState, useEffect } from "react";
 import Loader from "../../Components/Loader/Loader";
 import Get from "../../API/Get/Get";
 import "../Apple/apple.scss";
-import { Link, Outlet, useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Pagination from "../../Components/Pagination/Pagination";
 function Business({ getLocation }) {
   const [businessInfo, setBusinessInfo] = useState([]);
   const [page, setPage] = useState(1);
-  const [load, setLoad] = useState(false);
   const location = useLocation();
   const businessData = async () => {
-    setLoad(true);
     const businessAns = await fetch(Get.useBusinessData(page));
     const result = await businessAns.json();
     setBusinessInfo(result);
-    setLoad(false);
   };
   useEffect(() => {
     businessData();
     getLocation(location.pathname);
-    console.log(location.pathname);
   }, [page]);
   return (
     <>
@@ -55,7 +51,6 @@ function Business({ getLocation }) {
           </>
         )}
       </div>
-      <Outlet />
     </>
   );
 }

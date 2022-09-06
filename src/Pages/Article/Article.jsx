@@ -5,7 +5,6 @@ function Article({ pathname }) {
   const [innerData, setInnerData] = useState([]);
   const { title } = useParams();
   const navigate = useNavigate();
-  console.log(pathname);
   useEffect(() => {
     fetch(
       ` https://newsapi.org/v2/everything?q=${title}&sortBy=publishedAt&apiKey=cd5989874f8649ebb2dca88790fc68e4`

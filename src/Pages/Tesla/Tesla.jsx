@@ -2,24 +2,20 @@ import React, { useState, useEffect } from "react";
 import Loader from "../../Components/Loader/Loader";
 import Get from "../../API/Get/Get";
 import "../Apple/apple.scss";
-import { Link, Outlet, useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Pagination from "../../Components/Pagination/Pagination";
 function Tesla({ getLocation }) {
   const [teslaInfo, setTeslaInfo] = useState([]);
   const [page, setPage] = useState(1);
-  const [load, setLoad] = useState(false);
   const location = useLocation();
   const teslaData = async () => {
-    setLoad(true);
     const tesla = await fetch(Get.teslaData(page));
     const result = await tesla.json();
     setTeslaInfo(result);
-    setLoad(false);
   };
   useEffect(() => {
     teslaData();
     getLocation(location.pathname);
-    console.log(location.pathname);
   }, [page]);
   return (
     <>
@@ -55,7 +51,6 @@ function Tesla({ getLocation }) {
           </>
         )}
       </div>
-      <Outlet />
     </>
   );
 }

@@ -4,7 +4,6 @@ import "./calculator.scss";
 function Calculator() {
   let [input, setInput] = useState("");
   const digits = useRef();
-  console.log(digits.current);
   const calculatorDigits = [
     {
       id: uuidv4(),

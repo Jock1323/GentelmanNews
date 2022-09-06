@@ -1,5 +1,3 @@
-// 274f61e74d7f8090a7f9dd2f7a0c3ec2
-// https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=274f61e74d7f8090a7f9dd2f7a0c3ec2
 const Get = {
   appleData: (page) => {
     return `https://newsapi.org/v2/everything?q=apple&from=${new Date().getFullYear()}-${

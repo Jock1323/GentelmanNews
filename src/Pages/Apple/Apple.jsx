@@ -7,20 +7,15 @@ import Pagination from "../../Components/Pagination/Pagination";
 function Apple({ getLocation }) {
   const [appleInfo, setAppleInfo] = useState([]);
   const [page, setPage] = useState(1);
-  const [load, setLoad] = useState(false);
   const location = useLocation();
   const appleData = async () => {
-    setLoad(true);
     const apple = await fetch(Get.appleData(page));
     const result = await apple.json();
     setAppleInfo(result);
-    setLoad(false);
   };
   useEffect(() => {
     appleData();
     getLocation(location.pathname);
-    console.log(location.pathname);
-    console.log(new Date().getDate());
   }, [page]);
   return (
     <>
