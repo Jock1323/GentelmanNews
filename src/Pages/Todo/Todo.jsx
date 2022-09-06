@@ -3,8 +3,8 @@ import Modal from "../../Components/Modal/Modal";
 import { v4 as uuidv4 } from "uuid";
 import "./todo.scss";
 function Todo() {
-  const [local, setLocal] = useState(false);
-  const [todo, setTodo] = useState([]);
+  const localData = JSON.parse(window.localStorage.getItem("todo"));
+  const [todo, setTodo] = useState(localData || []);
   const [modalActive, setModalActive] = useState(false);
   const [editObject, setEditObject] = useState([]);
   const [message, setMessage] = useState(false);
@@ -17,10 +17,11 @@ function Todo() {
       isComplited: false,
     };
     setTodo([...todo, todoItem]);
-    // window.localStorage.setItem("todo", JSON.stringify(...todo));
-    // setLocal(true);
     evt.target[0].value = "";
   };
+  useEffect(() => {
+    window.localStorage.setItem("todo", JSON.stringify(todo));
+  }, [todo]);
 
   const deleteTodoItem = (todoId) => {
     setTodo(todo.filter((item) => item.id !== todoId));
@@ -121,6 +122,7 @@ function Todo() {
                     <input
                       type="checkbox"
                       className="todo__checkbox"
+                      checked={item.isComplited ? true : false}
                       onChange={() => isComplitedFunc(item.id)}
                     />
                   </td>
